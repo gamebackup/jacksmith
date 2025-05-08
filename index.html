@@ -1,48 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ruffle Emulator</title>
-    
-    <script src="https://unpkg.com/@rufflejs/ruffle-web"></script>
-
-    <!-- Add the CSS here -->
-    <style>
-        #fullscreen-button {
-            position: fixed;
-            top: 10px;
-            left: 10px;
-            padding: 10px 20px;
-            background-color: rgba(0, 123, 255, 0.8);
-            color: white;
-            font-size: 16px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            z-index: 9999;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        #fullscreen-button:hover {
-            background-color: rgba(0, 123, 255, 1);
-        }
-    </style>
-
+    <title>Ruffle Flash Test</title>
+    <script src="ruffle/ruffle.js"></script>
 </head>
 <body>
-
-<!-- Your Ruffle Player and Fullscreen Button -->
-<div id="ruffle-container">
-    <ruffle-player width="800" height="600" src="game1.swf"></ruffle-player>
-    <button id="fullscreen-button">Fullscreen</button>
-</div>
-
-<script>
-    const fullscreenButton = document.getElementById('fullscreen-button');
-    const ruffleContainer = document.getElementById('ruffle-container');
-    
-    function toggleFullscreen() {
-        if (!document.fullscreenElement) {
-            if (ruffleContainer.requestFullscreen) {
-                r
+    <h1>Running Flash with Ruffle</h1>
+    <embed src="jacksmith-14015.swf" width="800" height="600">
+</body>
+</html>
