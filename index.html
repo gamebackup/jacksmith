@@ -1,13 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Ruffle Flash Test</title>
-    <script src="ruffle/ruffle.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruffle Emulator</title>
+    <script src="https://unpkg.com/@rufflejs/ruffle-web"></script>
+    <style>
+        #ruffle-container {
+            width: 100%;
+            height: 100%;
+        }
+
+        #fullscreen-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <h1>Running Flash with Ruffle</h1>
-    <embed src="jacksmith-14015.swf" width="800" height="600">
+
+<div id="ruffle-container">
+    <ruffle-player width="800" height="600" src="game1.swf"></ruffle-player>
+    <button id="fullscreen-button">Fullscreen</button>
+</div>
+
+<script>
+    // Grab the fullscreen button
+    const fullscreenButton = document.getElementById('fullscreen-button');
+    const ruffleContainer = document.getElementById('ruffle-container');
+    
+    // Fullscreen function
+    function toggleFullscreen() {
+        if (!document.fullscreenElement) {
+            if (ruffleContainer.requestFullscreen) {
+                ruffleContainer.requestFullscreen();
+            } else if (ruffleContainer.mozRequestFullScreen) { // Firefox
+                ruffleContainer.mozRequestFullScreen();
+            } else if (ruffleContainer.webkitRequestFullscreen) { // Chrome, Safari
+                ruffleContainer.webkitRequestFullscreen();
+            } else if (ruffleContainer.msRequestFullscreen) { // IE/Edge
+                ruffleContainer.msRequestFullscreen();
+            }
+        } else {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.mozCancelFullScreen) { // Firefox
+                document.mozCancelFullScreen();
+            } else if (document.webkitExitFullscreen) { // Chrome, Safari
+                document.webkitExitFullscreen();
+            } else if (document.msExitFullscreen) { // IE/Edge
+                document.msExitFullscreen();
+            }
+        }
+    }
+
+    // Add an event listener to the button
+    fullscreenButton.addEventListener('click', toggleFullscreen);
+</script>
+
 </body>
 </html>
-
