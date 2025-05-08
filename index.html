@@ -4,66 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ruffle Emulator</title>
+    
     <script src="https://unpkg.com/@rufflejs/ruffle-web"></script>
-    <style>
-        #ruffle-container {
-            width: 100%;
-            height: 100%;
-        }
 
+    <!-- Add the CSS here -->
+    <style>
         #fullscreen-button {
-            position: absolute;
+            position: fixed;
             top: 10px;
-            right: 10px;
-            padding: 10px;
-            background-color: #007BFF;
+            left: 10px;
+            padding: 10px 20px;
+            background-color: rgba(0, 123, 255, 0.8);
             color: white;
+            font-size: 16px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            z-index: 9999;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        #fullscreen-button:hover {
+            background-color: rgba(0, 123, 255, 1);
         }
     </style>
+
 </head>
 <body>
 
+<!-- Your Ruffle Player and Fullscreen Button -->
 <div id="ruffle-container">
     <ruffle-player width="800" height="600" src="game1.swf"></ruffle-player>
     <button id="fullscreen-button">Fullscreen</button>
 </div>
 
 <script>
-    // Grab the fullscreen button
     const fullscreenButton = document.getElementById('fullscreen-button');
     const ruffleContainer = document.getElementById('ruffle-container');
     
-    // Fullscreen function
     function toggleFullscreen() {
         if (!document.fullscreenElement) {
             if (ruffleContainer.requestFullscreen) {
-                ruffleContainer.requestFullscreen();
-            } else if (ruffleContainer.mozRequestFullScreen) { // Firefox
-                ruffleContainer.mozRequestFullScreen();
-            } else if (ruffleContainer.webkitRequestFullscreen) { // Chrome, Safari
-                ruffleContainer.webkitRequestFullscreen();
-            } else if (ruffleContainer.msRequestFullscreen) { // IE/Edge
-                ruffleContainer.msRequestFullscreen();
-            }
-        } else {
-            if (document.exitFullscreen) {
-                document.exitFullscreen();
-            } else if (document.mozCancelFullScreen) { // Firefox
-                document.mozCancelFullScreen();
-            } else if (document.webkitExitFullscreen) { // Chrome, Safari
-                document.webkitExitFullscreen();
-            } else if (document.msExitFullscreen) { // IE/Edge
-                document.msExitFullscreen();
-            }
-        }
-    }
-
-    // Add an event listener to the button
-    fullscreenButton.addEventListener('click', toggleFullscreen);
-</script>
-
-</body>
-</html>
+                r
